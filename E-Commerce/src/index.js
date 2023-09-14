@@ -4,9 +4,12 @@ const bodyParser = require("body-parser");
 const { connectDB } = require("./db/db.connection");
 const routes = require("./routes/v1");
 const config = require("./config/config");
+const path=require('path')
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(express.static(path.join(__dirname, `/public`)));
 
 app.use(bodyParser.json());
 
